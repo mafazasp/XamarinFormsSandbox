@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             mc:Ignorable="d"
+             x:Class="XamarinFormsSandbox.MainPage"
+             BackgroundColor="#2B2B2B">
+    <StackLayout HorizontalOptions="Center" 
+                 VerticalOptions="Center" 
+                 Spacing="15" 
+                 BackgroundColor="#115ADC" 
+                 BindingContext="{x:Reference slider}" 
+                 Opacity="{Binding Value}">
+        <StackLayout.Padding>
+            <OnPlatform x:TypeArguments="Thickness"
+                        Android="10, 10, 10, 10"
+                        WinPhone="20, 20, 20, 20">
+            </OnPlatform>
+        </StackLayout.Padding>
+        <Label Text="{Binding Value, StringFormat='Opacity Level = {0:F2}' }" 
+               FontSize="Large" 
+               TextColor="Azure" 
+               x:Name="label"/>
+        <Slider ThumbColor="#5A5A5A" 
+                x:Name="slider"/>
+        <?Click Event, Reference to Mainpage.Xaml.cs?>
+        <Button Text="Click Me!" 
+                Clicked="Button_Clicked" 
+                BackgroundColor="#EBEBEB" 
+                TextColor="#242425"/>
+    </StackLayout>
+    
+</ContentPage>
